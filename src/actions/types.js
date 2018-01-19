@@ -1,0 +1,4 @@
+export const SET_COUNTER = "SET"
+export const INCREMENT_COUNTER = "INCREMENT"
+export const DECREMENT_COUNTER = "DECREMENT"
+export const CLEAR_COUNTER = "CLEAR"
