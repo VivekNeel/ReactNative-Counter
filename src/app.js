@@ -8,7 +8,7 @@ import {
   Button
 } from "react-native";
 import {connect} from 'react-redux'
-import {counterIncrement, counterDecrement, counterClear, counterSet} from './actions'
+import {counterIncrement, counterDecrement, counterClear, counterSet, helloAction} from './actions'
 
 class App extends Component {
   constructor(props) {
@@ -28,6 +28,8 @@ class App extends Component {
   render() {
     console.log(this.props)
     const {container, countViewStyle, welcome} = styles;
+    // Destructing
+    const {helloText, pressedButton} = this.props.hello
     return (
       <View style={container}>
         <TextInput
@@ -49,6 +51,13 @@ class App extends Component {
           <Button onPress={this.props.counterDecrement} title="-"/>
         </View>
         <Button onPress={this.props.counterClear} title="Clear"/>
+        <Text>{helloText}
+        </Text>
+
+        <Text>{"did you press the button" + pressedButton.toString()}
+        </Text>
+
+        <Button title="show me the magic" onPress={this.props.helloAction}></Button>
       </View>
     );
   }
@@ -81,4 +90,4 @@ function mapStateToProps(state) {
   return {count: state.counter, hello: state.hello}
 }
 // conect component to redux store
-export default connect(mapStateToProps, {counterIncrement, counterDecrement, counterClear, counterSet})(App)
+export default connect(mapStateToProps, {counterIncrement, counterDecrement, counterClear, counterSet, helloAction})(App)
