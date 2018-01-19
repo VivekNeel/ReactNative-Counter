@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 
 // maps  redux state to our props
 function mapStateToProps(state) {
-  return {count: state}
+  return {count: state.counter, hello: state.hello}
 }
 // conect component to redux store
 export default connect(mapStateToProps, {counterIncrement, counterDecrement, counterClear, counterSet})(App)
